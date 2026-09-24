@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import Layout from "./components/Layout";
 import ProtectedRoute from "./components/ProtectedRoute";
 import PublicRoute from "./components/PublicRoute";
+import LandingPage from "./pages/LandingPage";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
@@ -16,29 +17,29 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route 
-          path="/" 
-          element={token ? <Navigate to="/dashboard" /> : <Navigate to="/login" />} 
+        <Route
+          path="/"
+          element={token ? <Navigate to="/dashboard" /> : <LandingPage />}
         />
-        <Route 
-          path="/login" 
+        <Route
+          path="/login"
           element={
             <PublicRoute>
               <Login />
             </PublicRoute>
-          } 
+          }
         />
-        <Route 
-          path="/register" 
+        <Route
+          path="/register"
           element={
             <PublicRoute>
               <Register />
             </PublicRoute>
-          } 
+          }
         />
-        
+
         {/* Protected Routes */}
-        <Route 
+        <Route
           path="/*"
           element={
             <ProtectedRoute>
@@ -49,7 +50,6 @@ const App = () => {
                   <Route path="/goals" element={<Goals />} />
                   <Route path="/subscriptions" element={<Subscriptions />} />
                   <Route path="/analytics" element={<Analytics />} />
-                  {/* Redirect any other nested routes back to dashboard */}
                   <Route path="*" element={<Navigate to="/dashboard" />} />
                 </Routes>
               </Layout>

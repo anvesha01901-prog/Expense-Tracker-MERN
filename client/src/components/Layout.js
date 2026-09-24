@@ -15,13 +15,11 @@ const Layout = ({ children }) => {
   };
 
   return (
-    <div className="flex h-screen bg-gray-900 text-white">
-      {/* Desktop Sidebar */}
+    <div className="flex h-screen bg-[var(--page-bg)] text-slate-800">
       <div className="hidden lg:flex flex-shrink-0">
         <Sidebar onLogout={handleLogout} />
       </div>
 
-      {/* Mobile Sidebar */}
       <AnimatePresence>
         {isMobileSidebarOpen && (
           <>
@@ -35,25 +33,22 @@ const Layout = ({ children }) => {
               <Sidebar onLogout={handleLogout} />
             </motion.div>
             <div
-              className="fixed inset-0 bg-black/60 z-40 lg:hidden"
+              className="fixed inset-0 bg-slate-900/20 z-40 lg:hidden"
               onClick={() => setIsMobileSidebarOpen(false)}
             ></div>
           </>
         )}
       </AnimatePresence>
 
-      {/* Main Content */}
       <div className="flex-1 flex flex-col overflow-hidden">
-        {/* Top bar for mobile */}
-        <header className="lg:hidden flex justify-between items-center p-4 bg-gray-800/80 backdrop-blur-sm flex-shrink-0">
-          <h1 className="text-xl font-bold">💸 Tracker</h1>
-          <button onClick={() => setIsMobileSidebarOpen(true)}>
+        <header className="lg:hidden flex justify-between items-center p-4 bg-white/80 backdrop-blur-sm border-b border-[var(--gold-soft)] flex-shrink-0">
+          <h1 className="text-xl font-bold text-slate-900">💸 Tracker</h1>
+          <button onClick={() => setIsMobileSidebarOpen(true)} className="text-slate-700">
             <FiMenu size={24} />
           </button>
         </header>
 
-        {/* Content Area */}
-        <main className="flex-1 overflow-y-auto p-6">
+        <main className="flex-1 overflow-y-auto bg-[var(--page-bg)] p-6">
           {children}
         </main>
       </div>

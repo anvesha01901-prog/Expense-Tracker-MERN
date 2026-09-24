@@ -16,12 +16,12 @@ const Modal = ({ isOpen, onClose, title, children }) => {
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
-            className="bg-gray-800/80 backdrop-blur-xl rounded-lg shadow-xl w-full max-w-md relative border border-gray-700"
-            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
+            className="bg-white backdrop-blur-xl rounded-2xl shadow-[0_20px_60px_rgba(32,25,17,0.12)] w-full max-w-md relative border border-[var(--border-soft)]"
+            onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between p-4 border-b border-gray-700">
-              <h2 className="text-xl font-bold">{title}</h2>
-              <button onClick={onClose} className="text-gray-400 hover:text-white">
+            <div className="flex items-center justify-between p-4 border-b border-[var(--border-soft)]">
+              <h2 className="text-xl font-bold text-slate-900">{title}</h2>
+              <button onClick={onClose} className="text-slate-500 hover:text-slate-800 rounded-full p-1 hover:bg-[var(--beige)]">
                 <FiX size={24} />
               </button>
             </div>

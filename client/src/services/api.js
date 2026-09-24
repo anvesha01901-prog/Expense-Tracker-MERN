@@ -4,12 +4,28 @@ const API = axios.create({
   baseURL: "/api",
 });
 
+const logout = () => {
+  localStorage.removeItem("token");
+  window.location.href = "/login";
+};
+
 API.interceptors.request.use((req) => {
-  if (localStorage.getItem("token")) {
-    req.headers["x-auth-token"] = localStorage.getItem("token");
+  const token = localStorage.getItem("token");
+  if (token) {
+    req.headers["x-auth-token"] = token;
   }
   return req;
 });
+
+API.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response?.status === 401) {
+      logout();
+    }
+    return Promise.reject(error);
+  }
+);
 
 // Auth
 export const login = (formData) => API.post("/auth/login", formData);

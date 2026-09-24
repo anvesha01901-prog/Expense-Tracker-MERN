@@ -72,21 +72,21 @@ const TransactionForm = ({
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
-      {error && <p className="text-red-500 text-sm bg-red-500/10 p-2 rounded">{error}</p>}
-      {success && <p className="text-green-500 text-sm bg-green-500/10 p-2 rounded">{success}</p>}
-      
+      {error && <p className="text-red-600 text-sm bg-red-50 border border-red-100 p-2 rounded-lg">{error}</p>}
+      {success && <p className="text-green-700 text-sm bg-green-50 border border-green-100 p-2 rounded-lg">{success}</p>}
+
       <input
         name="amount"
         type="number"
         placeholder="Amount"
-        className="w-full p-2 rounded bg-gray-700/50 border border-gray-600 focus:ring-2 focus:ring-blue-500 outline-none"
+        className="w-full p-3 rounded-xl bg-[var(--beige)] border border-[var(--border-soft)] focus:ring-2 focus:ring-[var(--gold-soft)] outline-none text-slate-800"
         value={formData.amount}
         onChange={handleChange}
         required
       />
       <select
         name="type"
-        className="w-full p-2 rounded bg-gray-700/50 border border-gray-600 focus:ring-2 focus:ring-blue-500 outline-none"
+        className="w-full p-3 rounded-xl bg-[var(--beige)] border border-[var(--border-soft)] focus:ring-2 focus:ring-[var(--gold-soft)] outline-none text-slate-800"
         value={formData.type}
         onChange={handleChange}
         required
@@ -97,7 +97,7 @@ const TransactionForm = ({
       <input
         name="category"
         placeholder="Category"
-        className="w-full p-2 rounded bg-gray-700/50 border border-gray-600 focus:ring-2 focus:ring-blue-500 outline-none"
+        className="w-full p-3 rounded-xl bg-[var(--beige)] border border-[var(--border-soft)] focus:ring-2 focus:ring-[var(--gold-soft)] outline-none text-slate-800"
         value={formData.category}
         onChange={handleChange}
         required
@@ -105,7 +105,7 @@ const TransactionForm = ({
       <input
         name="date"
         type="date"
-        className="w-full p-2 rounded bg-gray-700/50 border border-gray-600 focus:ring-2 focus:ring-blue-500 outline-none"
+        className="w-full p-3 rounded-xl bg-[var(--beige)] border border-[var(--border-soft)] focus:ring-2 focus:ring-[var(--gold-soft)] outline-none text-slate-800"
         value={formData.date}
         onChange={handleChange}
         required
@@ -113,14 +113,14 @@ const TransactionForm = ({
       <textarea
         name="notes"
         placeholder="Notes (Optional)"
-        className="w-full p-2 rounded bg-gray-700/50 border border-gray-600 focus:ring-2 focus:ring-blue-500 outline-none"
+        className="w-full p-3 rounded-xl bg-[var(--beige)] border border-[var(--border-soft)] focus:ring-2 focus:ring-[var(--gold-soft)] outline-none text-slate-800"
         value={formData.notes}
         onChange={handleChange}
       />
       <div className="flex gap-4 pt-2">
         <motion.button
             whileTap={{ scale: 0.95 }}
-            className="bg-gray-600 hover:bg-gray-500 p-2 rounded w-full"
+            className="bg-slate-100 hover:bg-slate-200 text-slate-700 p-3 rounded-xl w-full border border-slate-200"
             type="button"
             onClick={onClose}
         >
@@ -128,7 +128,7 @@ const TransactionForm = ({
         </motion.button>
         <motion.button
             whileTap={{ scale: 0.95 }}
-            className="bg-blue-600 hover:bg-blue-500 p-2 rounded w-full"
+            className="bg-[var(--gold)] hover:bg-[var(--gold-deep)] text-white p-3 rounded-xl w-full shadow-lg shadow-[var(--gold-soft)]"
             type="submit"
         >
             {editTransaction ? "Update" : "Add Transaction"}

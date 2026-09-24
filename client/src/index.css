@@ -1,6 +1,50 @@
+:root {
+  --page-bg: #f8f5f0;
+  --beige: #f4efe8;
+  --beige-strong: #efe4d0;
+  --gold: #d7a94a;
+  --gold-deep: #b9821d;
+  --gold-soft: #f5e8c9;
+  --green-soft: #e7f6ee;
+  --green-deep: #2d8a5f;
+  --green-strong: #1c7a52;
+  --card-bg: #ffffff;
+  --card-muted: #fbfaf7;
+  --text-primary: #18212f;
+  --text-secondary: #5a6678;
+  --border-soft: rgba(145, 125, 83, 0.16);
+  --shadow-soft: rgba(32, 25, 17, 0.08);
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  background: var(--page-bg);
+  color: var(--text-primary);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
 
 @layer utilities {
   .custom-scrollbar::-webkit-scrollbar {
@@ -12,11 +56,11 @@
   }
 
   .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: rgba(156, 163, 175, 0.2);
+    background: rgba(156, 163, 175, 0.25);
     border-radius: 10px;
   }
 
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: rgba(156, 163, 175, 0.4);
+    background: rgba(156, 163, 175, 0.45);
   }
 }
